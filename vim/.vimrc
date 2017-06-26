@@ -18,6 +18,9 @@ set nu
 
 " disable Background Color Erase when using tmux
 set t_ut=
+if !has('gui_running')
+  set t_Co=256
+endif
 
 " Sets how many lines of history VIM has to remember
 set history=500
@@ -75,19 +78,58 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 
-" Run your favorite search tool from VIM
+" A tree explorer plugin for vim
+Plug 'scrooloose/nerdtree'
+map <F2> :NERDTreeToggle<CR>
+
+" A code search tool
 Plug 'mileszs/ack.vim'
-let g:ackprg = 'ag'  " Use the_silver_search tool
+if executable('ag')  " Execute ag if installed
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " Elegant buffer explorer
 Plug 'fholgado/minibufexpl.vim'
 
-" A tree explorer plugin for vim
-Plug 'scrooloose/nerdtree'
-nmap <F2> :NERDTreeToggle<CR>
+" The fancy start screen for vim
+Plug 'mhinz/vim-startify'
 
-" a GIT wrapper
+" Show a diff with style
+Plug 'mhinz/vim-signify'	
+
+" Git support
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+
+" Asynchronous lint engine
+Plug 'w0rp/ale'
+
+" Vim plug for commenting
+Plug 'scrooloose/nerdcommenter'
+
+" A code completion engine
+Plug 'valloric/youcompleteme'
+let g:ycm_server_python_interpreter = '/usr/bin/python'
+
+"Status/tabline
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+	\  'colorscheme': 'gruvbox',
+        \  'component': {
+        \    'readonly': '%{&readonly?"⭤":""}',
+        \  }
+	\  }
+set laststatus=2
+"set guifont=Fura\ Mono\ Powerline
+set guifont=PowerlineSymbols
+"set guifont=Fira\ Mono\ for\ Powerline\ Regular
+let g:Powerline_symbols = 'fancy'
+
+" Fast file navigation
+Plug 'wincent/command-t'
+
+" Add icons to popular vim plugins
+Plug 'ryanoasis/vim-devicons'
 
 " Vim plugin stat displays tags in a windoe
 Plug 'majutsushi/tagbar'
@@ -102,9 +144,8 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Use gruvbox theme
 " Link: http://vimawesome.com/plugin/gruvbox
-"let g:gruvbox_italic=1
+let g:gruvbox_italic=1
 colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
 
 set background=dark
-
