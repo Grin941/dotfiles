@@ -84,9 +84,14 @@ Plug 'fholgado/minibufexpl.vim'
 
 " A tree explorer plugin for vim
 Plug 'scrooloose/nerdtree'
+nmap <F2> :NERDTreeToggle<CR>
 
 " a GIT wrapper
 Plug 'tpope/vim-fugitive'
+
+" Vim plugin stat displays tags in a windoe
+Plug 'majutsushi/tagbar'
+nmap <F8> :TagbarToggle<CR>
 
 " Initialize plugin system
 call plug#end()
