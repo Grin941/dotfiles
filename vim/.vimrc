@@ -7,7 +7,6 @@
 "     -> VIM user interface
 "     -> Plugins
 "     -> Colors and Fonts
-"
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -18,9 +17,9 @@ set nu
 
 " disable Background Color Erase when using tmux
 set t_ut=
-if !has('gui_running')
-  set t_Co=256
-endif
+"if !has('gui_running')
+"  set t_Co=256
+"endif
 
 " Sets how many lines of history VIM has to remember
 set history=500
@@ -71,25 +70,20 @@ call plug#begin('~/.vim/plugged')
 " Colorscheme
 Plug 'morhetz/gruvbox'
 
-" JS indentation and syntax support
-Plug 'pangloss/vim-javascript'
-
-" JSX syntax highlighting and indenting
-Plug 'mxw/vim-jsx'
-let g:jsx_ext_required = 0
-
 " A tree explorer plugin for vim
 Plug 'scrooloose/nerdtree'
 map <F2> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
 
 " A code search tool
 Plug 'mileszs/ack.vim'
 if executable('ag')  " Execute ag if installed
-  let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag'
 endif
 
 " Elegant buffer explorer
 Plug 'fholgado/minibufexpl.vim'
+set hidden  " Prevent syntax off when closing buffer
 
 " The fancy start screen for vim
 Plug 'mhinz/vim-startify'
@@ -99,13 +93,6 @@ Plug 'mhinz/vim-signify'
 
 " Git support
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
-
-" Asynchronous lint engine
-Plug 'w0rp/ale'
-
-" Vim plug for commenting
-Plug 'scrooloose/nerdcommenter'
 
 " A code completion engine
 Plug 'valloric/youcompleteme'
@@ -114,24 +101,40 @@ let g:ycm_server_python_interpreter = '/usr/bin/python'
 "Status/tabline
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
-	\  'colorscheme': 'gruvbox',
-        \  'component': {
-        \    'readonly': '%{&readonly?"⭤":""}',
-        \  }
-	\  }
+	\ 'colorscheme': 'gruvbox',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component': {
+	\   'lineinfo': ' %3l:%-2v',
+	\ },
+	\ 'component_function': {
+	\   'readonly': 'LightlineReadonly',
+	\   'fugitive': 'LightlineFugitive'
+	\ },
+	\ 'separator': { 'left': '', 'right': '' },
+	\ 'subseparator': { 'left': '', 'right': '' }
+	\ }
+	function! LightlineReadonly()
+		return &readonly ? '' : ''
+	endfunction
+	function! LightlineFugitive()
+		if exists('*fugitive#head')
+			let branch = fugitive#head()
+			return branch !=# '' ? ''.branch : ''
+		endif
+		return ''
+	endfunction
 set laststatus=2
-"set guifont=Fura\ Mono\ Powerline
+set noshowmode  " Prevent Vim default mode information
 set guifont=PowerlineSymbols
-"set guifont=Fira\ Mono\ for\ Powerline\ Regular
 let g:Powerline_symbols = 'fancy'
-
-" Fast file navigation
-Plug 'wincent/command-t'
 
 " Add icons to popular vim plugins
 Plug 'ryanoasis/vim-devicons'
 
-" Vim plugin stat displays tags in a windoe
+" Vim plugin stat displays tags in a window
 Plug 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 
@@ -144,8 +147,6 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Use gruvbox theme
 " Link: http://vimawesome.com/plugin/gruvbox
-let g:gruvbox_italic=1
 colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
-
 set background=dark
