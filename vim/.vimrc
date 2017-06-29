@@ -141,6 +141,10 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 
+" Activate the versions and the virtualenvs of pyenv 
+" within a live VIM session
+Plug 'lambdalisue/vim-pyenv'
+
 " Initialize plugin system
 call plug#end()
 
@@ -153,3 +157,6 @@ call plug#end()
 colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
 set background=dark
+
+" Change python version support for Pyenv working correctly
+nnoremap <leader>py :! sudo update-alternatives --config vim<CR>
