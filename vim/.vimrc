@@ -145,6 +145,17 @@ nmap <F8> :TagbarToggle<CR>
 " within a live VIM session
 Plug 'lambdalisue/vim-pyenv'
 
+" Syntax checking for vim
+Plug 'vim-syntastic/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " Initialize plugin system
 call plug#end()
 
