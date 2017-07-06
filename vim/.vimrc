@@ -156,6 +156,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" A nicer Python indentation style for vim.
+Plug 'Vimjas/vim-python-pep8-indent'
+
 " Initialize plugin system
 call plug#end()
 
@@ -171,3 +174,7 @@ set background=dark
 
 " Change python version support for Pyenv working correctly
 nnoremap <leader>py :! sudo update-alternatives --config vim<CR>
+
+" Highlights tralling string if it contains > 80 symbols
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
