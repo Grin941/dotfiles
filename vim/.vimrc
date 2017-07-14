@@ -7,6 +7,7 @@
 "     -> VIM user interface
 "     -> Plugins
 "     -> Colors and Fonts
+"     -> Navigation
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -172,9 +173,15 @@ colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
 set background=dark
 
-" Change python version support for Pyenv working correctly
-nnoremap <leader>py :! sudo update-alternatives --config vim<CR>
-
 " Highlights tralling string if it contains > 80 symbols
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Navigation
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Buffers navigation
+nmap <C-K> :bnext<cr>
+nmap <C-J> :bprev<cr>
+nmap <C-L> :b#<cr>
