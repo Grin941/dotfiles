@@ -160,6 +160,22 @@ let g:syntastic_check_on_wq = 0
 " A nicer Python indentation style for vim.
 Plug 'Vimjas/vim-python-pep8-indent'
 
+" Enhanced javascript syntax file
+Plug 'jelera/vim-javascript-syntax'
+
+" Vastly improved Javascript indentation and syntax support
+Plug 'pangloss/vim-javascript'
+
+" A Vim plugin for visually displaying indent levels in code
+Plug 'nathanaelkane/vim-indent-guides'
+
+" Vim plugin, provides insert mode auto-completion for quotes, parens,
+" brackets, etc.
+Plug 'Raimondi/delimitMate'
+
+" Tern plugin for Vim
+Plug 'marijnh/tern_for_vim'
+
 " Initialize plugin system
 call plug#end()
 
