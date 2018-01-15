@@ -1,0 +1,5 @@
+(Download) http://ctags.sourceforge.net/
+cd ~/Downloads
+tar -xzvf ctags-5.8.tar.gz
+cd ctags-5.8
+./configure && sudo make install
