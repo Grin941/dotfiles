@@ -189,10 +189,6 @@ colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
 set background=dark
 
-" Highlights tralling string if it contains > 80 symbols
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation
