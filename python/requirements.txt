@@ -1,0 +1,6 @@
+# McCabe checker, plugin for flake8
+mccabe
+# Your Tool For Style Guide Enforcement
+flake8
+# Awesome autocompletion and static analysis library for python
+jedi

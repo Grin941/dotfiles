@@ -1,0 +1,13 @@
+[flake8]
+ignore = 
+    # E501: Max line length
+    # E501,
+    # H202: assertRaises Exception too broad
+    H202
+exclude = 
+    # No need to traverse our git directory
+    .git,
+    # There's no value in checking cache directories
+    __pycache__
+# Set mccabe complexity index as it's defined in NIST
+max-complexity = 10
