@@ -97,7 +97,7 @@ Plug 'tpope/vim-fugitive'
 
 " A code completion engine
 Plug 'valloric/youcompleteme'
-let g:ycm_server_python_interpreter = '/usr/bin/python'
+let g:ycm_server_python_interpreter = '/home/alexander/.pyenv/shims/python'
 nnoremap <leader>gt :YcmCompleter GoTo<CR>
 nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <leader>gd :YcmCompleter GetDoc<CR>
