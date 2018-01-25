@@ -71,23 +71,11 @@ call plug#begin('~/.vim/plugged')
 " Colorscheme
 Plug 'morhetz/gruvbox'
 
-" A tree explorer plugin for vim
-Plug 'scrooloose/nerdtree'
-map <F2> :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.pyc$']
-
 " A code search tool
 Plug 'mileszs/ack.vim'
 if executable('ag')  " Execute ag if installed
   let g:ackprg = 'ag'
 endif
-
-" Elegant buffer explorer
-Plug 'fholgado/minibufexpl.vim'
-set hidden  " Prevent syntax off when closing buffer
-
-" The fancy start screen for vim
-Plug 'mhinz/vim-startify'
 
 " Show a diff with style
 Plug 'mhinz/vim-signify'	
@@ -95,12 +83,32 @@ Plug 'mhinz/vim-signify'
 " Git support
 Plug 'tpope/vim-fugitive'
 
-" A code completion engine
-Plug 'valloric/youcompleteme'
-let g:ycm_server_python_interpreter = '/usr/bin/python'
-nnoremap <leader>gt :YcmCompleter GoTo<CR>
-nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
-nnoremap <leader>gd :YcmCompleter GetDoc<CR>
+" Dark powered asynchronous completion framework for neovim/Vim8
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+" Install neovim for python3:
+" pip3 install neovim
+" See: https://stackoverflow.com/questions/6587507/how-to-install-pip-with-python-3
+" for python3 errors.
+set pyxversion=3
+let g:deoplete#enable_at_startup = 1
+
+" Asynchronous lint engine
+Plug 'w0rp/ale'
+" After this is configured, :ALEFix will try and fix your Python code with
+" flake8 linter.
+let g:ale_fixers = {
+\   'python': ['flake8'],
+\}
+" Select specific linters
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
 
 "Status/tabline
 Plug 'itchyny/lightline.vim'
@@ -108,14 +116,19 @@ let g:lightline = {
 	\ 'colorscheme': 'gruvbox',
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste' ],
-	\             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+	\             [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
+        \   'right': [ ['lineinfo'], ['percent'],
+	\              ['linter_warnings', 'linter_errors', 'linter_ok'] ]
 	\ },
 	\ 'component': {
 	\   'lineinfo': ' %3l:%-2v',
 	\ },
 	\ 'component_function': {
 	\   'readonly': 'LightlineReadonly',
-	\   'fugitive': 'LightlineFugitive'
+	\   'fugitive': 'LightlineFugitive',
+	\   'linter_warnings': 'LightLineLinterWarnings',
+	\   'linter_errors': 'LightLineLinterErrors',
+	\   'linter_ok': 'LightLineLinterOK'
 	\ },
 	\ 'separator': { 'left': '', 'right': '' },
 	\ 'subseparator': { 'left': '', 'right': '' }
@@ -130,51 +143,44 @@ let g:lightline = {
 		endif
 		return ''
 	endfunction
+	function! LightlineLinterWarnings() abort
+		let l:counts = ale#statusline#Count(bufnr(''))
+		let l:all_errors = l:counts.error + l:counts.style_error
+		let l:all_non_errors = l:counts.total - l:all_errors
+		return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
+	endfunction
+	function! LightlineLinterErrors() abort
+		let l:counts = ale#statusline#Count(bufnr(''))
+		let l:all_errors = l:counts.error + l:counts.style_error
+		let l:all_non_errors = l:counts.total - l:all_errors
+		return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+	endfunction
+	function! LightlineLinterOK() abort
+		let l:counts = ale#statusline#Count(bufnr(''))
+		let l:all_errors = l:counts.error + l:counts.style_error
+		let l:all_non_errors = l:counts.total - l:all_errors
+		return l:counts.total == 0 ? '✓ ' : ''
+	endfunction
 set laststatus=2
 set noshowmode  " Prevent Vim default mode information
 set guifont=PowerlineSymbols
 let g:Powerline_symbols = 'fancy'
 
-" Add icons to popular vim plugins
-Plug 'ryanoasis/vim-devicons'
-
 " Vim plugin stat displays tags in a window
 Plug 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 
-" Activate the versions and the virtualenvs of pyenv 
-" within a live VIM session
-Plug 'lambdalisue/vim-pyenv'
-
-" Syntax checking for vim
-Plug 'vim-syntastic/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" A nicer Python indentation style for vim.
-Plug 'Vimjas/vim-python-pep8-indent'
-
-" Enhanced javascript syntax file
-Plug 'jelera/vim-javascript-syntax'
-
 " Vastly improved Javascript indentation and syntax support
 Plug 'pangloss/vim-javascript'
 
-" A Vim plugin for visually displaying indent levels in code
-Plug 'nathanaelkane/vim-indent-guides'
-
-" Vim plugin, provides insert mode auto-completion for quotes, parens,
-" brackets, etc.
-Plug 'Raimondi/delimitMate'
-
-" Tern plugin for Vim
-Plug 'marijnh/tern_for_vim'
+" A command-line fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :History<CR>
+nmap <Leader>c :Commits<CR>
+nmap <Leader>bc :BCommits<CR>
+nmap ; :Buffers<CR>
 
 " Initialize plugin system
 call plug#end()
@@ -197,3 +203,11 @@ set background=dark
 nmap <C-K> :bnext<cr>
 nmap <C-J> :bprev<cr>
 nmap <C-L> :b#<cr>
+
+" netrw navifation
+map <F2> :Vexplor.<CR>
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
