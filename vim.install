@@ -14,7 +14,7 @@ python3 -m install neovim
 sudo apt-get install silversearcher-ag
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-git clone https://github.com/Grin941/dotfiles.git
+git clone https://github.com/grin941/dotfiles.git
 mv dotfiles/vim/.vim* ~/
 cd ../
 rm -rf dotfiles/

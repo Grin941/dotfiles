@@ -3,3 +3,11 @@ cd ~/Downloads
 tar -xzvf ctags-5.8.tar.gz
 cd ctags-5.8
 ./configure && sudo make install
+
+# move .ctags to home dir
+git clone https://github.com/grin941/dotfiles.git
+mv dotfiles/.ctags ~/
+cd ../
+rm -rf dotfiles/
+
+
