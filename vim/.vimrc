@@ -92,9 +92,9 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 " Install neovim for python3:
-" pip3 install neovim
-" See: https://stackoverflow.com/questions/6587507/how-to-install-pip-with-python-3
-" for python3 errors.
+" sudo apt-get install python3-pip
+" python3 -m pip install setuptools
+" python3 -m pip install neovim
 set pyxversion=3
 let g:deoplete#enable_at_startup = 1
 
