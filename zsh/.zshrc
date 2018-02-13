@@ -1,6 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH=/home/alexander/.oh-my-zsh
 
@@ -51,7 +48,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git common-aliases web-search jira)
+plugins=(git jira)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,11 +82,16 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Add Zsh powerline prompt
-#powerline-daemon -q
-#. /home/alexander/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
 # Fix tmux $TERM
 if [ "$TERM" != "xterm-256color" ]; then
     export TERM=xterm-256color
 fi
+
+# Docker Compose
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# Integration with fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
