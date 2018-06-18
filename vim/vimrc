@@ -13,14 +13,15 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """"""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
 " Show line numbers
 set nu
 
 " disable Background Color Erase when using tmux
 set t_ut=
-"if !has('gui_running')
-"  set t_Co=256
-"endif
+" if !has('gui_running')
+"   set t_Co=256
+" endif
 
 " Sets how many lines of history VIM has to remember
 set history=500
@@ -69,13 +70,11 @@ set foldcolumn=1
 call plug#begin('~/.vim/plugged')
 
 " Colorscheme
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'ajmwagar/vim-deus'
 
 " A code search tool
-Plug 'mileszs/ack.vim'
-if executable('ag')  " Execute ag if installed
-  let g:ackprg = 'ag'
-endif
+Plug 'rking/ag.vim'
 
 " Show a diff with style
 Plug 'mhinz/vim-signify'	
@@ -113,7 +112,6 @@ let g:ale_linters = {
 "Status/tabline
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
-	\ 'colorscheme': 'gruvbox',
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste' ],
 	\             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
@@ -148,7 +146,7 @@ Plug 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 
 " Vastly improved Javascript indentation and syntax support
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
 
 " A command-line fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -168,9 +166,9 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Use gruvbox theme
 " Link: http://vimawesome.com/plugin/gruvbox
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'
-set background=dark
+colorscheme deus
+" let g:gruvbox_contrast_dark='hard'
+" set background=dark
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
