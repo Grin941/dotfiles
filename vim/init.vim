@@ -157,6 +157,9 @@ nmap <Leader>c :Commits<CR>
 nmap <Leader>bc :BCommits<CR>
 nmap ; :Buffers<CR>
 
+" Vim syntax highlighting for Vue components
+Plug 'posva/vim-vue'
+
 " Initialize plugin system
 call plug#end()
 
