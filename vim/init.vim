@@ -160,6 +160,9 @@ nmap ; :Buffers<CR>
 " Vim syntax highlighting for Vue components
 Plug 'posva/vim-vue'
 
+" Vim syntax for TOML
+Plug 'cespare/vim-toml'
+
 " Initialize plugin system
 call plug#end()
 
