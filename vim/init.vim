@@ -70,7 +70,6 @@ set foldcolumn=1
 call plug#begin('~/.vim/plugged')
 
 " Colorscheme
-Plug 'morhetz/gruvbox'
 Plug 'ajmwagar/vim-deus'
 
 " A code search tool
@@ -90,17 +89,15 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-" Install neovim for python3:
-" sudo apt-get install python3-pip
-" python3 -m pip install setuptools
-" python3 -m pip install neovim
-" set pyxversion=3
+Plug 'sebastianmarkow/deoplete-rust'
 let g:deoplete#enable_at_startup = 1
+" Read https://github.com/racer-rust/racer
+let g:deoplete#sources#rust#racer_binary = $HOME . '/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path = systemlist('rustc --print sysroot')[0] . '/lib/rustlib/src/rust/src'
 
 " Asynchronous lint engine
 Plug 'w0rp/ale'
-" After this is configured, :ALEFix will try and fix your Python code with
-" flake8 linter.
+" After this is configured, :ALEFix will try and fix your code with linter.
 let g:ale_fixers = {
 \   'python': ['flake8'],
 \}
@@ -109,7 +106,7 @@ let g:ale_linters = {
 \   'python': ['flake8'],
 \}
 
-"Status/tabline
+" Status/tabline
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
 	\ 'active': {
@@ -145,9 +142,6 @@ let g:Powerline_symbols = 'fancy'
 Plug 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 
-" Vastly improved Javascript indentation and syntax support
-" Plug 'pangloss/vim-javascript'
-
 " A command-line fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -170,11 +164,8 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" Use gruvbox theme
-" Link: http://vimawesome.com/plugin/gruvbox
+" Use deus theme
 colorscheme deus
-" let g:gruvbox_contrast_dark='hard'
-" set background=dark
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -199,5 +190,5 @@ let g:netrw_winsize = 25
 """"""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType html setlocal ts=2 sts=2 sw=2
 autocmd FileType css setlocal ts=2 sts=2 sw=2
-autocmd FileType javascript setlocal ts=4 sts=4 sw=4
+autocmd FileType js setlocal ts=4 sts=4 sw=4
 autocmd FileType c setlocal ts=4 sts=4 sw=4
