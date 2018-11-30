@@ -89,11 +89,14 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'sebastianmarkow/deoplete-rust'
 let g:deoplete#enable_at_startup = 1
+
+Plug 'sebastianmarkow/deoplete-rust'
 " Read https://github.com/racer-rust/racer
 let g:deoplete#sources#rust#racer_binary = $HOME . '/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path = systemlist('rustc --print sysroot')[0] . '/lib/rustlib/src/rust/src'
+
+Plug 'zchee/deoplete-jedi'
 
 " Asynchronous lint engine
 Plug 'w0rp/ale'
@@ -115,6 +118,7 @@ let g:lightline = {
 	\ },
 	\ 'component': {
 	\   'lineinfo': ' %3l:%-2v',
+        \   'filename': '%n:%t',
 	\ },
 	\ 'component_function': {
 	\   'readonly': 'LightlineReadonly',
