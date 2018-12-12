@@ -33,6 +33,19 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
+let g:clipboard = {
+\   'copy': {
+\      '+': 'tmux load-buffer -',
+\      '*': 'tmux load-buffer -',
+\    },
+\   'paste': {
+\      '+': 'tmux save-buffer -',
+\      '*': 'tmux save-buffer -',
+\   },
+\   'cache_enabled': 1,
+\ }
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
