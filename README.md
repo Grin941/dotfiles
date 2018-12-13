@@ -1,13 +1,13 @@
 # dotfiles
 A set of vim, zsh, git, and tmux configuration files.
 
-# install ctags
+## Install ctags
 ```apt install exuberant-ctags```
 
-# install silversearcher
+## Install silversearcher
 ```apt install silversearcher-ag```
 
-# Install fonts
+## Install fonts
 ```
 git clone https://github.com/ryanoasis/nerd-fonts.git --depth=1
 cd nerd-fonts
@@ -16,11 +16,11 @@ cd ../
 rm -rf nerd-fonts/
 ```
 
-# Configure fonts
+## Configure fonts
 Open Terminal -> Right Click -> Profiles -> Profile Preferences -> General
 Select Custom font -> Hack Regular
 
-# Install zsh
+## Install zsh
 ```
 apt install zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -28,14 +28,14 @@ chsh -s $(which zsh)
 vim ~/.zshrc
 ```
 
-# install fzf
+## Install fzf
 ```
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 export FZF_DEFAULT_OPTS="--reverse --height=40%"
 ```
 
-# Install pyenv
+## Install pyenv
 ```
 sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
 libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
@@ -49,7 +49,7 @@ exec "$SHELL"
 pyenv update
 ```
 
-# Install python neovim
+## Install python neovim
 ```
 pyenv install 2.7.15
 pyenv install 3.7.1
@@ -61,7 +61,7 @@ pyenv activate neovim3
 pip install neovim
 ```
 
-# Install nvim
+## Install nvim
 ```
 mkdir ~/.config/nvim
 apt install software-properties-common
@@ -82,19 +82,19 @@ vim ~/.config/nvim/init.vim
 source ~/.config/nvim/init.vim
 ```
 
-# Configure vim
+## Configure vim
 ```
 :Pluginstall
 :checkhealth
 ```
 
-# install flake8
+## Install flake8
 ```
 apt install flake8
 vim ~/.config/flake8
 ```
 
-# install tmux
+## Install tmux
 ```
 apt install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -102,7 +102,7 @@ vim ~/.tmux.conf
 source ~/.tmux.conf
 ```
 
-# Configure tmux
+## Configure tmux
 ```
 $ tmux
 C-b I
