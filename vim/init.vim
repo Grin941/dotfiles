@@ -33,6 +33,7 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
+" clipboard
 let g:clipboard = {
 \   'copy': {
 \      '+': 'tmux load-buffer -',
@@ -44,8 +45,8 @@ let g:clipboard = {
 \   },
 \   'cache_enabled': 1,
 \ }
-
-
+vnoremap <C-c> "+y
+vnoremap <C-p> "*p
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -94,22 +95,23 @@ Plug 'mhinz/vim-signify'
 " Git support
 Plug 'tpope/vim-fugitive'
 
+" Find And Replace Vim plugin
+Plug 'brooth/far.vim'
+
 " Dark powered asynchronous completion framework for neovim/Vim8
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
 
+" Rust autocomplete
 Plug 'sebastianmarkow/deoplete-rust'
 " Read https://github.com/racer-rust/racer
 let g:deoplete#sources#rust#racer_binary = $HOME . '/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path = systemlist('rustc --print sysroot')[0] . '/lib/rustlib/src/rust/src'
 
+" Python autocomplete
 Plug 'zchee/deoplete-jedi'
+let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
 
 " Asynchronous lint engine
 Plug 'w0rp/ale'
