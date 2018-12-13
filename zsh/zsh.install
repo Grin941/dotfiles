@@ -1,7 +1,0 @@
-sudo apt-get install curl
-sudo apt-get install git
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-chsh -s $(which zsh)
-cd /tmp
-git clone https://github.com/Grin941/dotfiles.git
-mv /tmp/dotfiles/zsh/.zsh* ~/
