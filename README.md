@@ -79,6 +79,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir ~/.config/nvim
 vim ~/.config/nvim/init.vim
+source ~/.config/nvim/init.vim
 ```
 
 # Configure vim
@@ -98,6 +99,7 @@ vim ~/.config/flake8
 apt install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 vim ~/.tmux.conf
+source ~/.tmux.conf
 ```
 
 # Configure tmux
