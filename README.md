@@ -44,7 +44,7 @@ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer 
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshenv
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshenv
 echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshenv
-echo -e 'if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then\n\tsource "${VIRTUAL_ENV}/bin/activate"\nfi'
+echo -e 'if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then\n\tsource "${VIRTUAL_ENV}/bin/activate"\nfi' >> ~/.zshenv
 exec "$SHELL"
 pyenv update
 ```
