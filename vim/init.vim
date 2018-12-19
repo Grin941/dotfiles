@@ -48,6 +48,9 @@ let g:clipboard = {
 vnoremap <C-c> "+y
 vnoremap <C-p> "*p
 
+" terminal
+tnoremap <Esc> <C-\><C-n>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -113,6 +116,28 @@ Plug 'zchee/deoplete-jedi'
 let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
 
+" Haskell autocomplete
+Plug 'eagletmt/neco-ghc'
+
+" Custom Haskell Vimscripts
+Plug 'neovimhaskell/haskell-vim'
+
+" Vim Haskell Hindent integration plugin
+Plug 'alx741/vim-hindent'
+
+" A neovim plugin for Intero, forked from ghcmod-vim
+Plug 'parsonsmatt/intero-neovim'
+augroup interoMaps
+  au!
+  " Automatically reload on save
+  au BufWritePost *.hs InteroReload
+augroup END
+let g:intero_start_immediately = 1
+let g:intero_type_on_hover = 1
+let g:intero_window_size = 80
+let g:intero_vertical_split = 1
+set updatetime=1000
+
 " Asynchronous lint engine
 Plug 'w0rp/ale'
 " After this is configured, :ALEFix will try and fix your code with linter.
@@ -122,6 +147,7 @@ let g:ale_fixers = {
 " Select specific linters
 let g:ale_linters = {
 \   'python': ['flake8'],
+\   'haskell': ['hlint'],
 \}
 
 " Status/tabline
@@ -211,3 +237,4 @@ autocmd FileType html setlocal ts=2 sts=2 sw=2
 autocmd FileType css setlocal ts=2 sts=2 sw=2
 autocmd FileType js setlocal ts=4 sts=4 sw=4
 autocmd FileType c setlocal ts=4 sts=4 sw=4
+
