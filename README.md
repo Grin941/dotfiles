@@ -35,6 +35,13 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 export FZF_DEFAULT_OPTS="--reverse --height=40%"
 ```
 
+## Haskell dev
+```
+curl -sSL https://get.haskellstack.org/ | sh
+stack install hindent
+stack install hlint
+```
+
 ## Install pyenv
 ```
 sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
