@@ -68,6 +68,18 @@ pyenv activate neovim3
 pip install neovim
 ```
 
+## Install node.js
+```
+apt install nodejs
+apt install npm
+```
+
+## Install neovim for node.js
+```
+npm install -g neovim
+npm -g install typescript
+```
+
 ## Install nvim
 ```
 mkdir ~/.config/nvim
@@ -89,9 +101,10 @@ vim ~/.config/nvim/init.vim
 source ~/.config/nvim/init.vim
 ```
 
-## Configure vim
+## Configure nvim
 ```
-:Pluginstall
+:PlugInstall
+:UpdateRemotePlugins
 :checkhealth
 ```
 
