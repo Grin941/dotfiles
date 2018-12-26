@@ -119,6 +119,15 @@ let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
 " Haskell autocomplete
 Plug 'eagletmt/neco-ghc'
 
+" Javascript autocomplete
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
+
+" Typescript autocomplete
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+
+" Yet Another TypeScript Syntax: The most advanced TypeScript Syntax Highlighting in Vim
+Plug 'HerringtonDarkholme/yats.vim'
+
 " Custom Haskell Vimscripts
 Plug 'neovimhaskell/haskell-vim'
 
@@ -143,11 +152,16 @@ Plug 'w0rp/ale'
 " After this is configured, :ALEFix will try and fix your code with linter.
 let g:ale_fixers = {
 \   'python': ['flake8'],
+\   'haskell': ['hlint'],
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
 \}
 " Select specific linters
 let g:ale_linters = {
 \   'python': ['flake8'],
 \   'haskell': ['hlint'],
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
 \}
 
 " Status/tabline
@@ -241,4 +255,3 @@ autocmd FileType html setlocal ts=2 sts=2 sw=2
 autocmd FileType css setlocal ts=2 sts=2 sw=2
 autocmd FileType js setlocal ts=4 sts=4 sw=4
 autocmd FileType c setlocal ts=4 sts=4 sw=4
-
