@@ -78,6 +78,7 @@ apt install npm
 ```
 npm install -g neovim
 npm -g install typescript
+npm install -g prettier
 ```
 
 ## Install nvim
