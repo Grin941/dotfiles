@@ -229,6 +229,10 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
+" Tabs navigation
+nmap <C-Left> :tabprevious<cr>
+nmap <C-Right> :tabnext<cr>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " => Indentation
