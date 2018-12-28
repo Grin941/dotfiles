@@ -139,3 +139,11 @@ source ~/.tmux.conf
 $ tmux
 C-b I
 ```
+
+## ctags usage
+* vim -t <tag name> to open vim straight on the tag
+* Ctrl+] to jump to tag when over a word
+* g+] to see a list of tags
+* Ctrl+T to pop back
+* :tselect or :stselect to open
+* :tnext, :tprev to go to next/prev tag finding

@@ -1,0 +1,16 @@
+# Linux staff
+*~
+._*
+
+# Vim
+*.swp
+*.swo
+*.swn
+**/tags
+
+# Pycharm IDE
+.idea
+
+# VsCode IDE
+*.prettierrc
+.vscode

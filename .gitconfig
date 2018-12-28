@@ -1,0 +1,19 @@
+[user]
+  name = Alexander Grinenko
+  email = labamifi@gmail.com
+
+[github]
+  user = Grin941
+
+[push]
+  default = simple
+
+[init]
+  templatedir = ~/.git_template
+
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = vim
+  filemode = false
+  trustctime = false
+  autocrlf = input
