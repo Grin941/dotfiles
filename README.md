@@ -23,6 +23,7 @@ Select Custom font -> Hack Regular
 ## Install zsh
 ```
 apt install zsh
+apt install fonts-powerline
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s $(which zsh)
 vim ~/.zshrc
