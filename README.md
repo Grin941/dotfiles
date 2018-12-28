@@ -20,6 +20,11 @@ rm -rf nerd-fonts/
 Open Terminal -> Right Click -> Profiles -> Profile Preferences -> General
 Select Custom font -> Hack Regular
 
+## Install OneDark Gnome terminal theme
+```
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)
+```
+
 ## Install zsh
 ```
 apt install zsh
