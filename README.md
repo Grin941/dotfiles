@@ -27,6 +27,11 @@ apt install fonts-powerline
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s $(which zsh)
 vim ~/.zshrc
+cd ~/.oh-my-zsh && git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+echo -e 'source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> ~/.zshrc
+cd ~/.oh-my-zsh && git clone git://github.com/zsh-users/zsh-autosuggestions
+echo -e 'source ~/.oh-my-zsh/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
+source ~/.zshrc
 ```
 
 ## Install fzf
