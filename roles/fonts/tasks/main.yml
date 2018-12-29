@@ -1,0 +1,14 @@
+---
+- name: Create local fonts folder
+  file:
+    path: ~/.local/share/fonts
+    state: directory
+
+- name: Copy Hack fonts
+  copy:
+    src: fonts 
+    dest: ~/.local/share/fonts
+    mode: 664
+
+- name: Apply system fonts
+  shell: gconftool-2 --set /apps/gnome-terminal/profiles/Default/font --type string "Hack-Regular 12"

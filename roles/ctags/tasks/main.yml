@@ -1,0 +1,12 @@
+---
+- name: Install ctags
+  apt:
+    pkg: ["exuberant-ctags"]
+    state: latest
+    update_cache: true
+
+- name: Push ctags config
+  copy:
+    src: ctags
+    dest: ~/.ctags
+    mode: 664

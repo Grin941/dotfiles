@@ -1,0 +1,13 @@
+---
+- hosts: local
+  roles:
+    - {role: ctags, tags: ['default']}
+    - {role: silversearcher, tags: ['default']}
+    - {role: fonts, tags: ['default']}
+    - {role: console_theme, tags: ['default']}
+    - {role: zsh, tags: ['default']}
+    - {role: fzf, tags: ['default']}
+    - {role: haskell, tags: ['haskell']}
+    - {role: neovim', tags: ['default']}
+    - {role: python, tags: ['python']}
+    - {role: tmux, tags: ['default']}
