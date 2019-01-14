@@ -1,6 +1,6 @@
 ---
-- name: Install silversearcher
+- name: Install silversearcher, htop
   apt:
-    pkg: ["silversearcher-ag"]
+    pkg: ["silversearcher-ag", "htop"]
     state: latest
     update_cache: true

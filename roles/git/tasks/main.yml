@@ -7,6 +7,9 @@
 
 - name: Copy git configs
   copy:
-    src: git 
-    dest: ~/
-    mode: 664
+    src: "{{ item.src }}" 
+    dest: "{{ item.dest }}"
+    mode: 0664
+  with_items:
+    - { src: '../files/gitconfig', dest: '~/.gitconfig' }
+    - { src: '../files/gitignore_global', dest: '~/.gitignore_global' }

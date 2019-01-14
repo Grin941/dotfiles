@@ -3,3 +3,10 @@ localhost
 
 [local:vars]
 ansible_connection=local
+
+[remote]
+192.168.33.20
+
+[remote:vars]
+ansible_ssh_port=22
+ansible_ssh_user=root

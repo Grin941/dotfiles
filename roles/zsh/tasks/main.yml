@@ -6,22 +6,31 @@
     update_cache: true
 
 - name: Install oh-my-zsh
-  shell: sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && \
-         chsh -s $(which zsh)
+  shell: |
+    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    chsh -s $(which zsh)
 
-- name: Copy zsh config files
+- name: Copy zshenv config files
   copy:
-    src: zsh 
-    dest: ~/
-    mode: 664
+    src: zshenv 
+    dest: ~/.zshenv
+    mode: 0664
 
-- name: Install zsh plugins
+- name: Copy zshrc config files
+  copy:
+    src: zshrc
+    dest: ~/.zshrc
+    mode: 0664
+
+- name: Install zsh-syntax-highlighting plugin
   git:
-    repo: git://github.com/zsh-users/zsh-syntax-highlighting.git
-    dest: ~/.oh-my-zsh
+    repo: git://github.com/zsh-users/zsh-syntax-highlighting
+    dest: ~/.oh-my-zsh/zsh-syntax-highlighting
+
+- name: Install zsh-autosuggestions plugin
   git:
     repo: git://github.com/zsh-users/zsh-autosuggestions
-    dest: ~/.oh-my-zsh
+    dest: ~/.oh-my-zsh/zsh-autosuggestions
 
 - name: Configure zsh plugins
-  shell: source ~/.zshrc
+  shell: /usr/bin/zsh -c "source ~/.zshrc"

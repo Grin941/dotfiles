@@ -6,9 +6,20 @@
 
 - name: Copy Hack fonts
   copy:
-    src: fonts 
+    src: "{{ item.src }}" 
     dest: ~/.local/share/fonts
-    mode: 664
+    mode: 0664
+  with_items:
+    - { src: '../files/Hack-Bold.ttf' }
+    - { src: '../files/Hack-BoldItalic.ttf' }
+    - { src: '../files/Hack-Italic.ttf' }
+    - { src: '../files/Hack-Regular.ttf' }
+
+- name: Insall GUI conf tool
+  apt:
+    pkg: ["gconf2"]
+    state: latest
+    update_cache: true
 
 - name: Apply system fonts
   shell: gconftool-2 --set /apps/gnome-terminal/profiles/Default/font --type string "Hack-Regular 12"

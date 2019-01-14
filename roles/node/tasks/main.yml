@@ -4,13 +4,16 @@
     pkg: ["nodejs", "npm"]
     state: latest
     update_cache: true
+  tags: [default,nodejs]
 
 - name: Install typescript
   npm:
     name: typescript
     global: yes
+  tags: [nodejs]
 
 - name: Install prettier
   npm:
     name: prettier
     global: yes
+  tags: [nodejs]

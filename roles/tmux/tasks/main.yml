@@ -10,9 +10,11 @@
     repo: https://github.com/tmux-plugins/tpm
     dest: ~/.tmux/plugins/tpm
 
-- name: Configure tmux
+- name: Copy tmux config
   copy:
     src: tmux 
     dest: ~/
-    mode: 664
+    mode: 0664
+
+- name: Activate tmux config
   shell: source ~/.tmux.conf

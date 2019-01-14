@@ -1,27 +1,33 @@
 ---
-- name: Install pyenv dependencies
-  apt:
-    pkg: ["make", "build-essential", "libssl-dev", "zlib1g-dev", "libbz2-dev",
-          "libreadline-dev", "libsqlite3-dev", "wget", "curl", "llvm", "libncurses5-dev",
-          "libncursesw5-dev", "xz-utils", "tk-dev", "libffi-dev", "liblzma-dev"]
-    state: latest
-    update_cache: true
-
-- name: Install pyenv
-  shell: curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash && \
-         exec "$SHELL"
-
-- name: Update pyenv
-  shell: pyenv update
+# - name: Install pyenv dependencies
+#   apt:
+#     pkg: ["make", "build-essential", "libssl-dev", "zlib1g-dev", "libbz2-dev",
+#           "libreadline-dev", "libsqlite3-dev", "wget", "curl",
+#           "llvm", "libncurses5-dev", "libffi-dev", "liblzma-dev",
+#           "libncursesw5-dev", "xz-utils", "tk-dev"]
+#     state: latest
+#     update_cache: true
+#   tags: [default,python]
+# 
+# - name: Install pyenv
+#   shell: curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash && \
+#          exec "$SHELL"
+#   tags: [default,python]
+# 
+# - name: Update pyenv
+#   shell: pyenv update
+#   tags: [default,python]
 
 - name: Install flake8
   apt:
     pkg: ["flake8"]
     state: latest
     update_cache: true
+  tags: [python]
 
 - name: Configure flake8
   copy:
-    src: python 
+    src: flake8 
     dest: ~/.config
-    mode: 664
+    mode: 0664
+  tags: [python]

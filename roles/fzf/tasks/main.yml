@@ -6,7 +6,8 @@
     depth: 1
 
 - name: Install fzf
-  shell: ~/.fzf/install
+  shell: |
+    yes | ~/.fzf/install
   
 - name: Configure fzf
   shell: export FZF_DEFAULT_OPTS="--reverse --height=40%"
