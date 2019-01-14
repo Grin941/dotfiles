@@ -1,0 +1,3 @@
+---
+- name: Install OneDark Gnome terminal theme
+  shell: bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"

@@ -1,0 +1,16 @@
+---
+- name: Install nodejs
+  apt:
+    pkg: ["nodejs", "npm"]
+    state: latest
+    update_cache: true
+
+- name: Install typescript
+  npm:
+    name: typescript
+    global: yes
+
+- name: Install prettier
+  npm:
+    name: prettier
+    global: yes

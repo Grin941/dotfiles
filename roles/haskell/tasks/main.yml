@@ -1,0 +1,5 @@
+---
+- name: Install Haskell dev env
+  shell: curl -sSL https://get.haskellstack.org/ | sh && \
+         stack install hindent && \
+         stack install hlint

@@ -1,0 +1,12 @@
+---
+- name: Install git
+  apt:
+    pkg: ["git"]
+    state: latest
+    update_cache: true
+
+- name: Copy git configs
+  copy:
+    src: git 
+    dest: ~/
+    mode: 664

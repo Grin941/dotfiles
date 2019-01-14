@@ -22,7 +22,7 @@ Select Custom font -> Hack Regular
 
 ## Install OneDark Gnome terminal theme
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
 ```
 
 ## Install zsh
@@ -94,7 +94,6 @@ npm install -g prettier
 
 ## Install nvim
 ```
-mkdir ~/.config/nvim
 apt install software-properties-common
 add-apt-repository ppa:neovim-ppa/stable
 apt update

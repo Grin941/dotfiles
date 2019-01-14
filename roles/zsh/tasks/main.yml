@@ -1,0 +1,27 @@
+---
+- name: Install zsh
+  apt:
+    pkg: ["zsh"]
+    state: latest
+    update_cache: true
+
+- name: Install oh-my-zsh
+  shell: sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && \
+         chsh -s $(which zsh)
+
+- name: Copy zsh config files
+  copy:
+    src: zsh 
+    dest: ~/
+    mode: 664
+
+- name: Install zsh plugins
+  git:
+    repo: git://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: ~/.oh-my-zsh
+  git:
+    repo: git://github.com/zsh-users/zsh-autosuggestions
+    dest: ~/.oh-my-zsh
+
+- name: Configure zsh plugins
+  shell: source ~/.zshrc

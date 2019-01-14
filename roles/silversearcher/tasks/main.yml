@@ -1,0 +1,6 @@
+---
+- name: Install silversearcher
+  apt:
+    pkg: ["silversearcher-ag"]
+    state: latest
+    update_cache: true

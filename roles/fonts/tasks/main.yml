@@ -12,3 +12,9 @@
 
 - name: Apply system fonts
   shell: gconftool-2 --set /apps/gnome-terminal/profiles/Default/font --type string "Hack-Regular 12"
+
+- name: Install powerline fonts
+  apt:
+    pkg: ["fonts-powerline"]
+    state: latest
+    update_cache: true

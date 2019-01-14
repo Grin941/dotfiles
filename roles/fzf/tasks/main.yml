@@ -1,0 +1,12 @@
+---
+- name: Clone fzf
+  git:
+    repo: https://github.com/junegunn/fzf.git
+    dest: ~/.fzf
+    depth: 1
+
+- name: Install fzf
+  shell: ~/.fzf/install
+  
+- name: Configure fzf
+  shell: export FZF_DEFAULT_OPTS="--reverse --height=40%"
