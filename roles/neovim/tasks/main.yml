@@ -7,25 +7,16 @@
     update_cache: true
 
 - name: Install python neovim2
-  # shell: pyenv install 2.7.15 && \
-  #        pyenv virtualenv 2.7.15 neovim2 && \
-  #        pyenv activate neovim2 && \
-  #        pip install neovim && \
-  #        pyenv deactivate
-  pip:
-    name: neovim
-    extra_args: --user
+  shell: |
+    pyenv install 2.7.15
+    pyenv virtualenv 2.7.15 neovim2
+    ~/.pyenv/versions/neovim2/bin/pip install neovim
 
 - name: Install python neovim3
-  # shell: pyenv install 3.7.1 && \
-  #        pyenv virtualenv 3.7.1 neovim3 && \
-  #        pyenv activate neovim3 && \
-  #        pip install neovim && \
-  #        pyenv deactivate
-  pip:
-    name: neovim
-    executable: pip3
-    extra_args: --user
+  shell: |
+    pyenv install 3.7.1
+    pyenv virtualenv 3.7.1 neovim3
+    ~/.pyenv/versions/neovim3/bin/pip install neovim
 
 - name: Install nodejs neovim
   npm:
@@ -43,12 +34,13 @@
     update_cache: true
 
 - name: Configure vim alternatives
-  shell: update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60 && \
-         update-alternatives --config vi && \
-         update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60 && \
-         update-alternatives --config vim && \
-         update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60 && \
-         update-alternatives --config editor
+  shell: |
+    update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+    update-alternatives --config vi
+    update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+    update-alternatives --config vim
+    update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+    update-alternatives --config editor
 
 - name: Install nvim plugins
   shell: curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -57,12 +49,13 @@
   file:
     path: ~/.config/nvim
     state: directory
+    recurse: yes
 
 - name: Copy nvim config
   copy:
-    src: neovim 
-    dest: ~/.config/nvim
+    src: init.vim 
+    dest: ~/.config/nvim/init.vim
     mode: 0664
 
 - name: Activate nvim config
-  shell: source ~/.config/nvim/init.vim
+  shell: /usr/bin/zsh -c "source ~/.config/nvim/init.vim || true"

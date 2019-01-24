@@ -12,11 +12,12 @@
  - name: Install pyenv
    shell: |
      curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-     exec "$SHELL"
+     /usr/bin/zsh -c "source ~/.zshrc"
+     /usr/bin/zsh -c "source ~/.zshenv"
    tags: [default,python]
  
  - name: Update pyenv
-   shell: pyenv update
+   shell: ~/.pyenv/bin/pyenv update
    tags: [default,python]
 
  - name: Install flake8
@@ -26,9 +27,14 @@
      update_cache: true
    tags: [python]
 
+ - name: Create flake8 folder
+   file:
+     path: ~/.config
+     state: directory
+
  - name: Configure flake8
    copy:
      src: flake8 
-     dest: ~/.config
+     dest: ~/.config/flake8
      mode: 0664
    tags: [python]

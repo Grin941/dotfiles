@@ -12,9 +12,9 @@
 
 - name: Copy tmux config
   copy:
-    src: tmux 
-    dest: ~/
+    src: tmux.conf 
+    dest: ~/.tmux.conf
     mode: 0664
 
 - name: Activate tmux config
-  shell: source ~/.tmux.conf
+  shell: /usr/bin/zsh -c "source ~/.tmux.conf || true"

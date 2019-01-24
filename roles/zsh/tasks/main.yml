@@ -7,7 +7,7 @@
 
 - name: Install oh-my-zsh
   shell: |
-    curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+    curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
     chsh -s $(which zsh)
 
 - name: Copy zshenv config files

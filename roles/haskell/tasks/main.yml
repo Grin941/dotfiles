@@ -3,10 +3,10 @@
   shell: curl -sSL https://get.haskellstack.org/ | sh -s - -f
   tags: [haskell]
 
-- name: Install Haskell hident
-  shell: stack install hindent
-  tags: [haskell]
+# - name: Install Haskell hident
+#   shell: stack install hindent
+#   tags: [haskell]
 
-- name: Install Haskell hlint
-  shell: stack install hlint
-  tags: [haskell]
+# - name: Install Haskell hlint
+#   shell: stack install hlint
+#   tags: [haskell]
