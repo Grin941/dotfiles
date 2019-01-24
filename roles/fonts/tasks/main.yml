@@ -15,12 +15,6 @@
     - { src: '../files/Hack-Italic.ttf' }
     - { src: '../files/Hack-Regular.ttf' }
 
-- name: Insall GUI conf tool
-  apt:
-    pkg: ["gconf2"]
-    state: latest
-    update_cache: true
-
 - name: Apply system fonts
   shell: gconftool-2 --set /apps/gnome-terminal/profiles/Default/font --type string "Hack-Regular 12"
 

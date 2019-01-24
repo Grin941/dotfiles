@@ -146,3 +146,9 @@ C-b I
 * Ctrl+T to pop back
 * :tselect or :stselect to open
 * :tnext, :tprev to go to next/prev tag finding
+
+
+```
+ssh-keygen -f "/home/alexander/.ssh/known_hosts" -R "192.168.33.20"
+ansible-playbook -i hosts -l remote dotfiles.yml -vv
+```

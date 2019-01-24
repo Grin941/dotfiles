@@ -1,3 +1,9 @@
 ---
+- name: Install GUI conf tool
+  apt:
+    pkg: ["gconf2"]
+    state: latest
+    update_cache: true
+
 - name: Install OneDark Gnome terminal theme
-  shell: bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
+  shell: curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh
