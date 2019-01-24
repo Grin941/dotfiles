@@ -8,14 +8,14 @@
 
 - name: Install python neovim2
   shell: |
-    pyenv install 2.7.15
-    pyenv virtualenv 2.7.15 neovim2
+    ~/.pyenv/bin/pyenv install 2.7.15
+    ~/.pyenv/bin/pyenv virtualenv 2.7.15 neovim2
     ~/.pyenv/versions/neovim2/bin/pip install neovim
 
 - name: Install python neovim3
   shell: |
-    pyenv install 3.7.1
-    pyenv virtualenv 3.7.1 neovim3
+    ~/.pyenv/bin/pyenv install 3.7.1
+    ~/.pyenv/bin/pyenv virtualenv 3.7.1 neovim3
     ~/.pyenv/versions/neovim3/bin/pip install neovim
 
 - name: Install nodejs neovim
