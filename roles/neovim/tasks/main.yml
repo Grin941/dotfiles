@@ -7,6 +7,12 @@
     state: latest
     update_cache: true
 
+- name: Add apt repository
+  become: true
+  apt_repository:
+    repo: ppa:neovim-ppa/stable
+    update_cache: true
+
 - name: Install python neovim2
   shell: |
     "{{ ansible_user_registered.home }}"/.pyenv/bin/pyenv install 2.7.15
