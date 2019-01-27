@@ -13,7 +13,14 @@ $ sudo apt install ansible
 Copy ssh key to remote machine
 ```
 $ [ echo /home/local_user/.ssh/id_rsa.pub >> /home/remote_user/.ssh/authorized_keys ]
+$ ssh-copy-id username@hostname
 ```
+Set permissions on the target machine
+```
+$ chmod 755 ~/.ssh
+$ chmod 600 ~/.ssh/authorized_keys
+```
+
 Install python on remote machine for Ansible
 ```
 $ sudo apt update
