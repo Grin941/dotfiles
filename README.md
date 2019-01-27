@@ -12,7 +12,7 @@ $ sudo apt install ansible
 ## Target machine configuration
 Copy ssh key to remote machine
 ```
-$ [ echo /home/local_user/.ssh/id_rsa.pub >> /home/remote_user/.ssh/authorized_keys ]
+$ [ cat /home/local_user/.ssh/id_rsa.pub >> /home/remote_user/.ssh/authorized_keys ]
 $ ssh-copy-id username@hostname
 ```
 Set permissions on the target machine
