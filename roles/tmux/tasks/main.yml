@@ -8,12 +8,12 @@
 - name: Install tmux plugins
   git:
     repo: https://github.com/tmux-plugins/tpm
-    dest: "{{ ansible_user_registered.home }}"/.tmux/plugins/tpm
+    dest: "{{ ansible_user_registered.home }}/.tmux/plugins/tpm"
 
 - name: Copy tmux config
   copy:
     src: tmux.conf 
-    dest: "{{ ansible_user_registered.home }}"/.tmux.conf
+    dest: "{{ ansible_user_registered.home }}/.tmux.conf"
     mode: 0664
 
 - name: Activate tmux config

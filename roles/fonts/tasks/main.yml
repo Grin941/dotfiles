@@ -1,13 +1,13 @@
 ---
 - name: Create local fonts folder
   file:
-    path: "{{ ansible_user_registered.home }}"/.local/share/fonts
+    path: "{{ ansible_user_registered.home }}/.local/share/fonts"
     state: directory
 
 - name: Copy Hack fonts
   copy:
     src: "{{ item.src }}" 
-    dest: "{{ ansible_user_registered.home }}"/.local/share/fonts
+    dest: "{{ ansible_user_registered.home }}/.local/share/fonts"
     mode: 0664
   with_items:
     - { src: '../files/Hack-Bold.ttf' }

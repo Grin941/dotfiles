@@ -18,7 +18,7 @@
    tags: [default,python]
  
  - name: Update pyenv
-   shell: "{{ ansible_user_registered.home }}"/.pyenv/bin/pyenv update
+   shell: "{{ ansible_user_registered.home }}/.pyenv/bin/pyenv update"
    tags: [default,python]
 
  - name: Install flake8
@@ -30,12 +30,12 @@
 
  - name: Create flake8 folder
    file:
-     path: "{{ ansible_user_registered.home }}"/.config
+     path: "{{ ansible_user_registered.home }}/.config"
      state: directory
 
  - name: Configure flake8
    copy:
      src: flake8 
-     dest: "{{ ansible_user_registered.home }}"/.config/flake8
+     dest: "{{ ansible_user_registered.home }}/.config/flake8"
      mode: 0664
    tags: [python]

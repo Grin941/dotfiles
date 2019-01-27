@@ -14,24 +14,24 @@
 - name: Copy zshenv config files
   copy:
     src: zshenv 
-    dest: "{{ ansible_user_registered.home }}"/.zshenv
+    dest: "{{ ansible_user_registered.home }}/.zshenv"
     mode: 0664
 
 - name: Copy zshrc config files
   copy:
     src: zshrc
-    dest: "{{ ansible_user_registered.home }}"/.zshrc
+    dest: "{{ ansible_user_registered.home }}/.zshrc"
     mode: 0664
 
 - name: Install zsh-syntax-highlighting plugin
   git:
     repo: git://github.com/zsh-users/zsh-syntax-highlighting
-    dest: "{{ ansible_user_registered.home }}"/.oh-my-zsh/zsh-syntax-highlighting
+    dest: "{{ ansible_user_registered.home }}/.oh-my-zsh/zsh-syntax-highlighting"
 
 - name: Install zsh-autosuggestions plugin
   git:
     repo: git://github.com/zsh-users/zsh-autosuggestions
-    dest: "{{ ansible_user_registered.home }}"/.oh-my-zsh/zsh-autosuggestions
+    dest: "{{ ansible_user_registered.home }}/.oh-my-zsh/zsh-autosuggestions"
 
 - name: Configure zsh plugins
   shell: /usr/bin/zsh -c "source {{ ansible_user_registered.home }}/.zshrc"

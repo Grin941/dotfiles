@@ -45,14 +45,14 @@
 
 - name: Create nvim config folder
   file:
-    path: "{{ ansible_user_registered.home }}"/.config/nvim
+    path: "{{ ansible_user_registered.home }}/.config/nvim"
     state: directory
     recurse: yes
 
 - name: Copy nvim config
   copy:
     src: init.vim 
-    dest: "{{ ansible_user_registered.home }}"/.config/nvim/init.vim
+    dest: "{{ ansible_user_registered.home }}/.config/nvim/init.vim"
     mode: 0664
 
 - name: Activate nvim config
