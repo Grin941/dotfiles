@@ -6,6 +6,12 @@
     state: latest
     update_cache: true
 
+- name: Delete oh-my-zsh if exists
+  become: true
+  file:
+    state: absent
+    path "{{ ansible_user_registered.home }}/.oh-my-zsh/"
+
 - name: Install oh-my-zsh
   shell: |
     cd "{{ ansible_user_registered.home }}"
