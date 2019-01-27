@@ -11,5 +11,5 @@
     dest: "{{ item.dest }}"
     mode: 0664
   with_items:
-    - { src: '../files/gitconfig', dest: '~/.gitconfig' }
-    - { src: '../files/gitignore_global', dest: '~/.gitignore_global' }
+    - { src: '../files/gitconfig', dest: '{{ ansible_user_registered.home }}/.gitconfig' }
+    - { src: '../files/gitignore_global', dest: '{{ ansible_user_registered.home }}/.gitignore_global' }

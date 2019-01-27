@@ -23,10 +23,6 @@
     name: neovim
     global: yes
 
-- name: Add neovim repository to apt
-  apt_repository:
-    repo: ppa:neovim-ppa/stable
-
 - name: Install neovim
   apt:
     pkg: ["neovim"]
