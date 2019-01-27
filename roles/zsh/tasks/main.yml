@@ -10,7 +10,7 @@
   become: true
   file:
     state: absent
-    path "{{ ansible_user_registered.home }}/.oh-my-zsh/"
+    path: "{{ ansible_user_registered.home }}/.oh-my-zsh/"
 
 - name: Install oh-my-zsh
   shell: |
