@@ -22,7 +22,10 @@
   shell: |
     cd "{{ ansible_user_registered.home }}"
     curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
-    chsh -s $(which zsh)
+
+- name: Activate zsh
+  become: true
+  shell: chsh -s $(which zsh)
 
 - name: Copy zshenv config files
   copy:
