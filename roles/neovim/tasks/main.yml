@@ -1,5 +1,6 @@
 ---
 - name: Install neovim requirement packages
+  become: true
   apt:
     pkg: ["software-properties-common", "python-dev", 
           "python-pip", "python3-dev", "python3-pip"]
@@ -24,6 +25,7 @@
     global: yes
 
 - name: Install neovim
+  become: true
   apt:
     pkg: ["neovim"]
     state: latest

@@ -1,5 +1,6 @@
 ---
  - name: Install pyenv dependencies
+   become: true
    apt:
      pkg: ["make", "build-essential", "libssl-dev", "zlib1g-dev", "libbz2-dev",
            "libreadline-dev", "libsqlite3-dev", "wget", "curl",
@@ -22,6 +23,7 @@
    tags: [default,python]
 
  - name: Install flake8
+   become: true
    apt:
      pkg: ["flake8"]
      state: latest

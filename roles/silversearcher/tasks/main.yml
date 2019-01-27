@@ -1,5 +1,6 @@
 ---
 - name: Install silversearcher
+  become: true
   apt:
     pkg: ["silversearcher-ag"]
     state: latest

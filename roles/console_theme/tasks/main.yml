@@ -1,5 +1,6 @@
 ---
 - name: Install GUI conf tool
+  become: true
   apt:
     pkg: ["gconf2"]
     state: latest
