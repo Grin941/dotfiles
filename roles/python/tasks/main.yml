@@ -11,13 +11,14 @@
  
  - name: Install pyenv
    shell: |
+     cd "{{ ansible_user_registered.home }}"
      curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-     /usr/bin/zsh -c "source ~/.zshrc"
-     /usr/bin/zsh -c "source ~/.zshenv"
+     /usr/bin/zsh -c "source {{ ansible_user_registered.home }}/.zshrc"
+     /usr/bin/zsh -c "source {{ ansible_user_registered.home }}/.zshenv"
    tags: [default,python]
  
  - name: Update pyenv
-   shell: ~/.pyenv/bin/pyenv update
+   shell: "{{ ansible_user_registered.home }}"/.pyenv/bin/pyenv update
    tags: [default,python]
 
  - name: Install flake8
@@ -29,12 +30,12 @@
 
  - name: Create flake8 folder
    file:
-     path: ~/.config
+     path: "{{ ansible_user_registered.home }}"/.config
      state: directory
 
  - name: Configure flake8
    copy:
      src: flake8 
-     dest: ~/.config/flake8
+     dest: "{{ ansible_user_registered.home }}"/.config/flake8
      mode: 0664
    tags: [python]

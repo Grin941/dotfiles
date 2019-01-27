@@ -1,6 +1,6 @@
 ---
 - name: Register ansible_user
   user:
-    name: {{ ansible_user }}
+    name: "{{ ansible_user }}"
     state: present
   register: ansible_user_registered

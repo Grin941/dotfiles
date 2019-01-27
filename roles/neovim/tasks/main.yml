@@ -8,15 +8,15 @@
 
 - name: Install python neovim2
   shell: |
-    ~/.pyenv/bin/pyenv install 2.7.15
-    ~/.pyenv/bin/pyenv virtualenv 2.7.15 neovim2
-    ~/.pyenv/versions/neovim2/bin/pip install neovim
+    "{{ ansible_user_registered.home }}"/.pyenv/bin/pyenv install 2.7.15
+    "{{ ansible_user_registered.home }}"/.pyenv/bin/pyenv virtualenv 2.7.15 neovim2
+    "{{ ansible_user_registered.home }}"/.pyenv/versions/neovim2/bin/pip install neovim
 
 - name: Install python neovim3
   shell: |
-    ~/.pyenv/bin/pyenv install 3.7.1
-    ~/.pyenv/bin/pyenv virtualenv 3.7.1 neovim3
-    ~/.pyenv/versions/neovim3/bin/pip install neovim
+    "{{ ansible_user_registered.home }}"/.pyenv/bin/pyenv install 3.7.1
+    "{{ ansible_user_registered.home }}"/.pyenv/bin/pyenv virtualenv 3.7.1 neovim3
+    "{{ ansible_user_registered.home }}"/.pyenv/versions/neovim3/bin/pip install neovim
 
 - name: Install nodejs neovim
   npm:
@@ -39,19 +39,21 @@
     update-alternatives --config editor
 
 - name: Install nvim plugins
-  shell: curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  shell: |
+    cd "{{ ansible_user_registered.home }}"
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 - name: Create nvim config folder
   file:
-    path: ~/.config/nvim
+    path: "{{ ansible_user_registered.home }}"/.config/nvim
     state: directory
     recurse: yes
 
 - name: Copy nvim config
   copy:
     src: init.vim 
-    dest: ~/.config/nvim/init.vim
+    dest: "{{ ansible_user_registered.home }}"/.config/nvim/init.vim
     mode: 0664
 
 - name: Activate nvim config
-  shell: /usr/bin/zsh -c "source ~/.config/nvim/init.vim || true"
+  shell: /usr/bin/zsh -c "source {{ ansible_user_registered.home }}/.config/nvim/init.vim || true"

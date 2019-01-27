@@ -2,12 +2,12 @@
 - name: Clone fzf
   git:
     repo: https://github.com/junegunn/fzf.git
-    dest: ~/.fzf
+    dest: "{{ ansible_user_registered.home }}"/.fzf
     depth: 1
 
 - name: Install fzf
   shell: |
-    yes | ~/.fzf/install
+    yes | "{{ ansible_user_registered.home }}"/.fzf/install
   
 - name: Configure fzf
   shell: export FZF_DEFAULT_OPTS="--reverse --height=40%"

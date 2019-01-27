@@ -7,30 +7,31 @@
 
 - name: Install oh-my-zsh
   shell: |
+    cd "{{ ansible_user_registered.home }}"
     curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
     chsh -s $(which zsh)
 
 - name: Copy zshenv config files
   copy:
     src: zshenv 
-    dest: ~/.zshenv
+    dest: "{{ ansible_user_registered.home }}"/.zshenv
     mode: 0664
 
 - name: Copy zshrc config files
   copy:
     src: zshrc
-    dest: ~/.zshrc
+    dest: "{{ ansible_user_registered.home }}"/.zshrc
     mode: 0664
 
 - name: Install zsh-syntax-highlighting plugin
   git:
     repo: git://github.com/zsh-users/zsh-syntax-highlighting
-    dest: ~/.oh-my-zsh/zsh-syntax-highlighting
+    dest: "{{ ansible_user_registered.home }}"/.oh-my-zsh/zsh-syntax-highlighting
 
 - name: Install zsh-autosuggestions plugin
   git:
     repo: git://github.com/zsh-users/zsh-autosuggestions
-    dest: ~/.oh-my-zsh/zsh-autosuggestions
+    dest: "{{ ansible_user_registered.home }}"/.oh-my-zsh/zsh-autosuggestions
 
 - name: Configure zsh plugins
-  shell: /usr/bin/zsh -c "source ~/.zshrc"
+  shell: /usr/bin/zsh -c "source {{ ansible_user_registered.home }}/.zshrc"

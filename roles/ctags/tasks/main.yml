@@ -8,5 +8,5 @@
 - name: Push ctags config
   copy:
     src: ctags
-    dest: ~/.ctags
+    dest: "{{ ansible_user_registered.home }}"/.ctags
     mode: 0664
