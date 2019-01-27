@@ -32,7 +32,6 @@ $ sudo apt install -y python
 * Change hosts if you need
 * run comman for either local or remote hosts
 ```
-$ ansible-playbook -i hosts -l remote dotfiles.yml -vv
 $ ansible-playbook -i hosts -l local dotfiles.yml -vv --ask-become-pass
 ```
 If you have error with ssh keys try to run:
