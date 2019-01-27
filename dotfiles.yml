@@ -12,6 +12,6 @@
     - {role: fzf, tags: ['default']}
     - {role: python, tags: ['python']}
     - {role: node, tags: ['nodejs']}
-    - {role: haskell, tags: ['haskell']}
+    # - {role: haskell, tags: ['haskell']}
     - {role: neovim, tags: ['default']}
     - {role: tmux, tags: ['default']}

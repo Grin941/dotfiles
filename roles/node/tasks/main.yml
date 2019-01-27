@@ -8,12 +8,14 @@
   tags: [default,nodejs]
 
 - name: Install typescript
+  become: true
   npm:
     name: typescript
     global: yes
   tags: [nodejs]
 
 - name: Install prettier
+  become: true
   npm:
     name: prettier
     global: yes

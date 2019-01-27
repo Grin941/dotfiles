@@ -27,6 +27,7 @@
     "{{ ansible_user_registered.home }}"/.pyenv/versions/neovim3/bin/pip install neovim
 
 - name: Install nodejs neovim
+  become: true
   npm:
     name: neovim
     global: yes
