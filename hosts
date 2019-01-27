@@ -2,8 +2,7 @@
 localhost
 
 [local:vars]
-ansible_connection=local
-ansible_become=yes
+ansible_port=22
 ansible_user=alexander
 
 [remote]
