@@ -39,14 +39,23 @@
     state: latest
     update_cache: true
 
-- name: Configure vim alternatives
-  shell: |
-    update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-    update-alternatives --config vi
-    update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-    update-alternatives --config vim
-    update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-    update-alternatives --config editor
+- name: Config nvim as vi alternative
+  become: true
+  alternatives:
+    name: vi
+    path: /usr/bin/nvim
+
+- name: Config nvim as vim alternative
+  become: true
+  alternatives:
+    name: vim
+    path: /usr/bin/nvim
+
+- name: Config nvim as editor alternative
+  become: true
+  alternatives:
+    name: editor
+    path: /usr/bin/nvim
 
 - name: Install nvim plugins
   shell: |

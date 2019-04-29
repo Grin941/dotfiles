@@ -12,7 +12,6 @@ $ sudo apt install ansible
 ## Target machine configuration
 Copy ssh key to remote machine
 ```
-$ [ cat /home/local_user/.ssh/id_rsa.pub >> /home/remote_user/.ssh/authorized_keys ]
 $ ssh-copy-id username@hostname
 ```
 Set permissions on the target machine
@@ -58,4 +57,8 @@ C-b I
 * g+] to see a list of tags
 * Ctrl+T to pop back
 * :tselect or :stselect to open
+
+
+## PAM: Authentfication dailure error
+https://askubuntu.com/questions/812420/chsh-always-asking-a-password-and-get-pam-authentication-failure/812426
 * :tnext, :tprev to go to next/prev tag file
