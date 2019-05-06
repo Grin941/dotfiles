@@ -77,6 +77,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'ajmwagar/vim-deus'
 Plug 'rakr/vim-one'
 
+" A collection of language packs for Vim
+Plug 'sheerun/vim-polyglot'
+
 " A code search tool
 Plug 'rking/ag.vim'
 
