@@ -293,3 +293,5 @@ autocmd FileType css setlocal ts=2 sts=2 sw=2
 autocmd FileType ts setlocal ts=2 sts=2 sw=2
 autocmd FileType js setlocal ts=4 sts=4 sw=4
 autocmd FileType c setlocal ts=4 sts=4 sw=4
+autocmd FileType json setlocal ts=2 sts=2 sw=2
+autocmd FileType py setlocal ts=4 sts=4 sw=4
