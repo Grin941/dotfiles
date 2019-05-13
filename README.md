@@ -3,6 +3,8 @@ A set of vim, zsh, git, and tmux configuration files.
 
 ## Local machine configuration
 ```
+$ sudo apt-get remove openssh-client openssh-server
+$ sudo apt-get install openssh-client openssh-server
 $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 $ eval "$(ssh-agent -s)"
 $ ssh-add ~/.ssh/id_rsa
@@ -57,8 +59,8 @@ C-b I
 * g+] to see a list of tags
 * Ctrl+T to pop back
 * :tselect or :stselect to open
-
-
-## PAM: Authentfication dailure error
-https://askubuntu.com/questions/812420/chsh-always-asking-a-password-and-get-pam-authentication-failure/812426
 * :tnext, :tprev to go to next/prev tag file
+  
+
+## PAM: Authentfication failure error
+https://askubuntu.com/questions/812420/chsh-always-asking-a-password-and-get-pam-authentication-failure/812426
