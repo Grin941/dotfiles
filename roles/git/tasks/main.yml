@@ -14,3 +14,9 @@
   with_items:
     - { src: '../files/gitconfig', dest: '{{ ansible_user_registered.home }}/.gitconfig' }
     - { src: '../files/gitignore_global', dest: '{{ ansible_user_registered.home }}/.gitignore_global' }
+
+- name: Apply gitignore_global
+  git_config:
+    name: core.excludesfile
+    scope: global
+    value: '{{ ansible_user_registered.home }}/.gitignore_global'

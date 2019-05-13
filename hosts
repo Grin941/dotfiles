@@ -3,10 +3,10 @@ localhost
 
 [local:vars]
 ansible_port=22
-ansible_user=grinenko_a
+ansible_user=alexander
 
 [remote]
-192.168.33.20
+192.168.33.15
 
 [remote:vars]
 ansible_port=22
