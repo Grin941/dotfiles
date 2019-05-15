@@ -20,3 +20,15 @@
     name: core.excludesfile
     scope: global
     value: '{{ ansible_user_registered.home }}/.gitignore_global'
+
+- name: Apply mergetool_cmd
+  git_config:
+    name: mergetool.fugitive.cmd
+    scope: global
+    value: 'vim -f -c "Gvdiff" "$MERGED"'
+
+- name: Apply mergetool
+  git_config:
+    name: merge.tool
+    scope: global
+    value: 'fugitive'
