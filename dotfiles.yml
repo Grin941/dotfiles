@@ -3,6 +3,7 @@
   roles:
     - {role: register_ansible_user, tags: ['default']}
     - {role: upload_ssh_key, tags: ['default']}
+    - {role: pgcli, tags: ['postgres']}
     - {role: git, tags: ['default']}
     - {role: ctags, tags: ['default']}
     - {role: silversearcher, tags: ['default']}

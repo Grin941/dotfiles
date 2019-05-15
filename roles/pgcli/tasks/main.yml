@@ -1,0 +1,7 @@
+---
+- name: Install pgcli
+  become: true
+  apt:
+    pkg: ["pgcli"]
+    state: latest
+    update_cache: true
