@@ -5,8 +5,8 @@ A set of vim, zsh, git, and tmux configuration files.
 * Change **hosts** file if you need
 * run command for either local or remote hosts
 ```
-$ make install_ansible
-$ make configure_ssh EMAIL=your@email 
+$ sudo make install_ansible
+$ sudo make configure_ssh EMAIL=your@email 
 $ ansible-playbook -i hosts -l local dotfiles.yml -vv
 ```
 

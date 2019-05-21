@@ -21,8 +21,8 @@ install_ansible:
 configure_ssh:
 	@echo "Configure ssh"
 	@echo "Call make configure_ssh EMAIL=your@email"
-	apt install openssh-client openssh-server; \
-	if [ ! -d "${HOME}/.ssh/" ]; then \
+	apt install openssh-client openssh-server xclip; \
+	if [ ! -f "${HOME}/.ssh/id_rsa" ]; then \
 		ssh-keygen -t rsa -b 4096 -C "${EMAIL}"; \
 	fi; \
 	eval `ssh-agent -s`; \
