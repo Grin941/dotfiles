@@ -13,17 +13,22 @@ help:
 install_ansible:
 	@echo "Install Ansible with dependencies"
 	apt update; \
-	apt upgrade; \
+	apt -y upgrade; \
 	apt install -y python; \
-	apt install -y ansible
+	apt install -y software-properties-common; \
+	sudo apt-add-repository --yes --update ppa:ansible/ansible; \
+	apt install -y ansible; \
+	apt install -y openssh-client openssh-server; \
+	apt install -y xclip
 
 
 configure_ssh:
 	@echo "Configure ssh"
 	@echo "Call make configure_ssh EMAIL=your@email"
-	apt install openssh-client openssh-server xclip; \
 	if [ ! -f "${HOME}/.ssh/id_rsa" ]; then \
 		ssh-keygen -t rsa -b 4096 -C "${EMAIL}"; \
 	fi; \
 	eval `ssh-agent -s`; \
-	ssh-add ~/.ssh/id_rsa
+	ssh-add ~/.ssh/id_rsa; \
+	ssh-keyscan -H localhost >> ~/.ssh/known_hosts
+	ssh-copy-id localhost
