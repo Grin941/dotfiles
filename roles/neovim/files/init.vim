@@ -234,6 +234,9 @@ Plug 'mattn/emmet-vim'
 " True Sublime Text style multiple selections for Vim
 Plug 'terryma/vim-multiple-cursors'
 
+" A Vim plugin that manages your tag files
+Plug 'ludovicchabant/vim-gutentags'
+
 " Initialize plugin system
 call plug#end()
 
