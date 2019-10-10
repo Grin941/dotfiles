@@ -7,7 +7,7 @@ A set of vim, zsh, git, and tmux configuration files.
 ```
 $ sudo make install_ansible
 $ sudo make configure_ssh EMAIL=your@email 
-$ ansible-playbook -i hosts -l local dotfiles.yml -vv
+$ ansible-playbook -i hosts -l local dotfiles.yml -vv --ask-become-pass
 ```
 
 ## Configure nvim
