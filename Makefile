@@ -31,4 +31,4 @@ configure_ssh:
 	eval `ssh-agent -s`; \
 	ssh-add ~/.ssh/id_rsa; \
 	ssh-keyscan -H localhost >> ~/.ssh/known_hosts
-	ssh-copy-id localhost
+	ssh-copy-id grinenko_a@localhost

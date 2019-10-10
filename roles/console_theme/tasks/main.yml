@@ -5,6 +5,7 @@
     pkg: ["gconf2"]
     state: latest
     update_cache: true
+    force_apt_get: yes
 
 - name: Install OneDark Gnome terminal theme
   shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"

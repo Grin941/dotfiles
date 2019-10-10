@@ -5,3 +5,4 @@
     pkg: ["silversearcher-ag"]
     state: latest
     update_cache: true
+    force_apt_get: yes

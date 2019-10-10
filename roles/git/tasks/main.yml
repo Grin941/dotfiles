@@ -5,6 +5,7 @@
     pkg: ["git"]
     state: latest
     update_cache: true
+    force_apt_get: yes
 
 - name: Copy git configs
   copy:

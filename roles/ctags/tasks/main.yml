@@ -5,6 +5,7 @@
     pkg: ["exuberant-ctags"]
     state: latest
     update_cache: true
+    force_apt_get: yes
 
 - name: Push ctags config
   copy:

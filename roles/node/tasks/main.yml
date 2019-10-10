@@ -5,6 +5,7 @@
     pkg: ["nodejs", "npm"]
     state: latest
     update_cache: true
+    force_apt_get: yes
   tags: [default,nodejs]
 
 - name: Add Yarn apt key
@@ -22,6 +23,7 @@
   become: true
   apt:
     name: yarn
+    force_apt_get: yes
 
 - name: Install typescript
   become: true

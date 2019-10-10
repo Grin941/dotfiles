@@ -5,6 +5,7 @@
     pkg: ["tmux"]
     state: latest
     update_cache: true
+    force_apt_get: yes
 
 - name: Install tmux plugins
   git:

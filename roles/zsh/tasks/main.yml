@@ -5,6 +5,7 @@
     pkg: ["zsh"]
     state: latest
     update_cache: true
+    force_apt_get: yes
 
 - name: Delete oh-my-zsh if exists
   become: true

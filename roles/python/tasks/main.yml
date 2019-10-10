@@ -8,6 +8,7 @@
            "libncursesw5-dev", "xz-utils", "tk-dev"]
      state: latest
      update_cache: true
+     force_apt_get: yes
    tags: [default,python]
  
  - name: Install pyenv
@@ -28,6 +29,7 @@
      pkg: ["flake8"]
      state: latest
      update_cache: true
+     force_apt_get: yes
    tags: [python]
 
  - name: Create flake8 folder
