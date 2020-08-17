@@ -1,8 +1,13 @@
 ---
-- name: Install pgcli
+- name: Install pgcli dependencies
   become: true
   apt:
-    pkg: ["pgcli"]
+    pkg: ["python3-pip", "libpq-dev", "python3-dev"]
     state: latest
     update_cache: true
     force_apt_get: yes
+
+- name: Install pgcli
+  become: true
+  shell: |
+    /usr/bin/pip3 install pgcli

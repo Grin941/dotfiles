@@ -1,30 +1,16 @@
 ---
-- name: Install neovim requirement packages
+- name: Install neovim
   become: true
   apt:
-    pkg: ["software-properties-common", "python-dev", 
-          "python-pip", "python3-dev", "python3-pip"]
+    pkg: ["software-properties-common", "python3-dev", "python3-pip", "neovim"]
     state: latest
     update_cache: true
     force_apt_get: yes
 
-- name: Add apt repository
-  become: true
-  apt_repository:
-    repo: ppa:neovim-ppa/stable
-    update_cache: true
-    codename: bionic
-
-- name: Install python neovim2
-  shell: |
-    "{{ ansible_user_registered.home }}"/.pyenv/bin/pyenv install 2.7.15
-    "{{ ansible_user_registered.home }}"/.pyenv/bin/pyenv virtualenv 2.7.15 neovim2
-    "{{ ansible_user_registered.home }}"/.pyenv/versions/neovim2/bin/pip install neovim
-
 - name: Install python neovim3
   shell: |
-    "{{ ansible_user_registered.home }}"/.pyenv/bin/pyenv install 3.7.1
-    "{{ ansible_user_registered.home }}"/.pyenv/bin/pyenv virtualenv 3.7.1 neovim3
+    "{{ ansible_user_registered.home }}"/.pyenv/bin/pyenv install 3.8.5
+    "{{ ansible_user_registered.home }}"/.pyenv/bin/pyenv virtualenv 3.8.5 neovim3
     "{{ ansible_user_registered.home }}"/.pyenv/versions/neovim3/bin/pip install neovim
 
 - name: Install nodejs neovim
@@ -32,14 +18,6 @@
   npm:
     name: neovim
     global: yes
-
-- name: Install neovim
-  become: true
-  apt:
-    pkg: ["neovim"]
-    state: latest
-    update_cache: true
-    force_apt_get: yes
 
 - name: Config nvim as vi alternative
   become: true

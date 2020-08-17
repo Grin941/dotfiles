@@ -16,7 +16,6 @@ install_ansible:
 	apt -y upgrade; \
 	apt install -y python; \
 	apt install -y software-properties-common; \
-	sudo apt-add-repository --yes --update ppa:ansible/ansible; \
 	apt install -y ansible; \
 	apt install -y openssh-client openssh-server; \
 	apt install -y xclip

@@ -9,6 +9,7 @@
     - {role: ctags, tags: ['default']}
     - {role: silversearcher, tags: ['default']}
     - {role: htop, tags: ['default']}
+    - {role: bat, tags: ['default']}
     - {role: console_theme, tags: ['default']}
     - {role: fonts, tags: ['default']}
     - {role: zsh, tags: ['default']}

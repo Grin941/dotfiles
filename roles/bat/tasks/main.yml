@@ -1,0 +1,13 @@
+---
+- name: Install bat
+  become: true
+  apt:
+    pkg: ["bat"]
+    state: latest
+    update_cache: true
+    force_apt_get: yes
+
+- name: Fix bat executable
+  shell: |
+    mkdir -p ~/.local/bin
+    ln -s /usr/bin/batcat ~/.local/bin/bat
